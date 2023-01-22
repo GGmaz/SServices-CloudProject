@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Students</title>
 </head>
 <body>
     <form action="{% url 'students-register' %}" method="POST">
@@ -21,5 +21,26 @@
         <br>
         <input type="submit" value="Register">
     </form>
+<!-- create table of all students -->
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>JMBG</th>
+                <th>Index</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.jmbg }}</td>
+                    <td>{{ student.index }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

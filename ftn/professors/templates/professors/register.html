@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Professors</title>
+</head>
+<body>
+    <form action="{% url 'professors-register' %}" method="POST">
+        {% csrf_token %}
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" id="first_name">
+        <br>
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" id="last_name">
+        <br>
+        <label for="jmbg">JMBG</label>
+        <input type="text" name="jmbg" id="jmbg">
+        <br>
+        <input type="submit" value="Register">
+    </form>
+<!-- create table of all students -->
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>JMBG</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in professors %}
+                <tr>
+                    <td>{{ professor.first_name }}</td>
+                    <td>{{ professor.last_name }}</td>
+                    <td>{{ professor.jmbg }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
