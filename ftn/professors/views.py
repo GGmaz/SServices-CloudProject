@@ -8,7 +8,7 @@ import requests
 # Create your views here.
 
 def checkIfProfessorNotExistsInUnsDb(form):
-    url = 'http://localhost:8050/api/professor/'
+    url = 'http://localhost:8050/professor'
     data = {
         'jmbg': form.cleaned_data['jmbg'],
         'first_name': form.cleaned_data['first_name'],
@@ -16,7 +16,7 @@ def checkIfProfessorNotExistsInUnsDb(form):
     }
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     response = requests.post(url, data=json.dumps(data), headers=headers)
-    if response.status_code == 201:
+    if response.status_code == 200:
         return True
     return False
 
