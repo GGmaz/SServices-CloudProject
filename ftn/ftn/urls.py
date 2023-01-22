@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 from rest_framework import routers
+from django.views.generic.base import RedirectView
 # from ftn.registerStudent.vi
 
 
@@ -25,5 +26,6 @@ from rest_framework import routers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include(router.urls)),
+    # path('', RedirectView.as_view(url='/students')),
+    path('students/', include('registerStudent.urls')),
 ]

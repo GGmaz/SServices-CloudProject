@@ -1,10 +1,16 @@
 from django.shortcuts import render
-from rest_framework import viewsets
-from .models import Student
-from .serializers import StudentSerializer
+from .forms import RegistrationForm
+
 
 # Create your views here.
 
-class StudentViewSet(viewsets.ModelViewSet):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+def StudentRegistrationView(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = RegistrationForm()
+
+    print(form.all())
+    return render(request, 'registerStudent/register.html', {'form': form})
