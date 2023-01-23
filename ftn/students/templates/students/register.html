@@ -5,6 +5,15 @@
     <title>Students</title>
 </head>
 <body>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
     <form action="{% url 'students-register' %}" method="POST">
         {% csrf_token %}
         <label for="first_name">First Name</label>

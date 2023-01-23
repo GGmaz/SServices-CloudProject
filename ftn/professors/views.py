@@ -3,6 +3,7 @@ from .forms import RegistrationForm
 from .models import Professor
 import json
 import requests
+from django.contrib import messages
 
 
 # Create your views here.
@@ -28,7 +29,7 @@ def ProfessorRegistrationView(request):
             if checkIfProfessorNotExistsInUnsDb(form):
                 form.save()
             else:
-                return render(request, 'professors/register.html', {'form': form, 'error': 'Professor exists already in UNS database'})
+                messages.add_message(request, messages.INFO, 'Professor exists already in UNS database')
             return redirect('professor-list')
     else:
         form = RegistrationForm()
