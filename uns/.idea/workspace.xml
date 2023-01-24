@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd0135b-5078-490b-b20e-c846b0ea3846" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ftn/professors/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ftn/professors/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ftn/students/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ftn/students/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ftn/students/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ftn/students/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

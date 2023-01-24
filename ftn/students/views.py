@@ -36,7 +36,7 @@ def StudentRegistrationView(request):
     else:
         form = RegistrationForm()
 
-    return render(request, 'students/register.html', {'form': form})
+    return redirect('student-list')
 
 def student_list(request):
     students = Student.objects.all()
