@@ -10,7 +10,7 @@ from django.contrib import messages
 # Create your views here.
 
 def checkIfStudentNotExistsInUnsDb(form):
-    url = 'http://localhost:8050/student'
+    url = 'http://uns:8050/student'
     data = {
         'jmbg': form.cleaned_data['jmbg'],
         'first_name': form.cleaned_data['first_name'],

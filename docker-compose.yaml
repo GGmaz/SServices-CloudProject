@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ftn
+      POSTGRES_DB: uns
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  ftn:
+    build: ./ftn
+    ports:
+      - "8060:8060"
+
+  uns:
+    build: ./uns
+    restart: always
+    ports:
+      - "8050:8050"
+    depends_on:
+      db:
+        condition: service_healthy

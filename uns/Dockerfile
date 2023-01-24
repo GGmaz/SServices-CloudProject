@@ -1,34 +1,20 @@
-@@ -0,0 +1,33 @@
-# Start from the latest golang base image
-FROM golang:latest as builder
+# Use the official golang image as the base image
+FROM golang:latest
 
-# Set the Current Working Directory inside the container
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy go mod and sum files
-COPY ./go.mod ./go.sum ./
-
-# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
-RUN go mod download
-
-# Copy everything from the current directory to the Working Directory inside the container
+# Copy the current directory contents into the container at /app
 COPY . .
 
-# Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+# Download and install the required dependencies
+RUN go get -d -v ./...
 
+# Build the Go application
+RUN go build -o main .
 
+# Expose port 8050 to the outside world
+EXPOSE 8050
 
-######## Start a new stage from scratch #######
-#FROM alpine:latest
-#
-#WORKDIR /root/
-#
-## Copy the Pre-built binary file from the previous stage
-#COPY --from=builder /app/main /app/certTLS/ ./
-
-# Expose port 8000 to the outside world
-EXPOSE 8100
-
-# Command to run the executable
+# Run the binary
 CMD ["./main"]
