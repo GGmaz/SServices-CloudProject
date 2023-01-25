@@ -7,6 +7,7 @@ import (
 	_ "github.com/lib/pq"
 	"log"
 	"net/http"
+	"os"
 )
 
 type student struct {
@@ -22,6 +23,8 @@ type professor struct {
 	LastName  string `json:"last_name"`
 }
 
+var cnt int = 0
+
 func main() {
 	createTables()
 	http.HandleFunc("/student", handleStudentRequest)
@@ -30,6 +33,13 @@ func main() {
 }
 
 func handleStudentRequest(w http.ResponseWriter, r *http.Request) {
+	hostname, err := os.Hostname()
+	if err != nil {
+		fmt.Println("Error getting hostname:", err)
+		return
+	}
+	fmt.Println("Container hostname:", hostname, " - Request count:", cnt)
+
 	if r.Method == http.MethodPost {
 		var student student
 		json.NewDecoder(r.Body).Decode(&student)
@@ -60,6 +70,13 @@ func handleStudentRequest(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleProfessorRequest(w http.ResponseWriter, r *http.Request) {
+	hostname, err := os.Hostname()
+	if err != nil {
+		fmt.Println("Error getting hostname:", err)
+		return
+	}
+	fmt.Println("Container hostname:", hostname, " - Request count:", cnt)
+
 	if r.Method == http.MethodPost {
 		var professor professor
 		json.NewDecoder(r.Body).Decode(&professor)
