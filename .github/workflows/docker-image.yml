@@ -30,6 +30,6 @@ jobs:
         id: ftn_build
         uses: docker/build-push-action@v2
         with:
-          context: ./uns
+          context: ./ftn
           push: true
           tags: ggmaz/cloud-project:ftn
