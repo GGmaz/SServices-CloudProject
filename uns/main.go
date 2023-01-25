@@ -33,6 +33,7 @@ func main() {
 }
 
 func handleStudentRequest(w http.ResponseWriter, r *http.Request) {
+	cnt++
 	hostname, err := os.Hostname()
 	if err != nil {
 		fmt.Println("Error getting hostname:", err)
@@ -70,6 +71,7 @@ func handleStudentRequest(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleProfessorRequest(w http.ResponseWriter, r *http.Request) {
+	cnt++
 	hostname, err := os.Hostname()
 	if err != nil {
 		fmt.Println("Error getting hostname:", err)
