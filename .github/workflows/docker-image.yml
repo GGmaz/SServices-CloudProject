@@ -16,6 +16,6 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build ./uns --file Dockerfile --tag GGmaz/cloud-project:uns_image
+      run: docker build ./uns --file Dockerfile --tag ggmaz/cloud-project:uns_image
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/cloud-project:uns_image
