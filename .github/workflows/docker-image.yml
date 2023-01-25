@@ -25,3 +25,11 @@ jobs:
           context: ./uns
           push: true
           tags: ggmaz/cloud-project:uns
+          
+      - name: Build and push
+        id: ftn_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./uns
+          push: true
+          tags: ggmaz/cloud-project:ftn
