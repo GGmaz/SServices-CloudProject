@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from .models import Student
@@ -40,5 +42,6 @@ def StudentRegistrationView(request):
 
 def student_list(request):
     students = Student.objects.all()
-    return render(request, 'students/register.html', {'students': students})
+    NAME = os.environ.get('NAME')
+    return render(request, 'students/register.html', {'students': students, 'NAME': NAME})
 

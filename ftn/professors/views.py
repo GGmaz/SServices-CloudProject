@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from .models import Professor
@@ -38,5 +40,6 @@ def ProfessorRegistrationView(request):
 
 def professor_list(request):
     professors = Professor.objects.all()
-    return render(request, 'professors/register.html', {'professors': professors})
+    NAME = os.environ.get('NAME')
+    return render(request, 'professors/register.html', {'professors': professors, 'NAME': NAME})
 
