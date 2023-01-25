@@ -3,9 +3,7 @@ name: Build and push docker image to hub
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build-and-publish-docker-image:
